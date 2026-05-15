@@ -1,0 +1,58 @@
+{
+  "experiment_id": "S13_severity_r3d_uniform_pod",
+  "task": "severity",
+  "manifest_paths": {
+    "train": "data/manifests/balanced_accident_severity_train.jsonl",
+    "val": "data/manifests/balanced_accident_severity_val.jsonl",
+    "test": "data/manifests/balanced_accident_severity_test.jsonl"
+  },
+  "model": {
+    "family": "r3d_baseline",
+    "encoder_name": "r3d_18",
+    "pretrained": true,
+    "num_classes": 3
+  },
+  "training": {
+    "loss": "cross_entropy",
+    "label_smoothing": 0.0
+  },
+  "runtime": {
+    "device": "cuda",
+    "num_workers": 8,
+    "amp": true,
+    "log_interval": 20
+  },
+  "data": {
+    "clip_num_frames": 8,
+    "clip_stride": 8,
+    "input_size": 160,
+    "batch_size": 4,
+    "train_clip_sampler": "uniform",
+    "eval_clip_sampler": "uniform"
+  },
+  "project": {
+    "name": "traffic_incident_cv",
+    "output_dir": "outputs/runpod_severity_push",
+    "seed": 42,
+    "deterministic": true
+  },
+  "evaluation": {
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "balanced_accuracy"
+    ]
+  },
+  "optimization": {
+    "optimizer": "adamw",
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "epochs": 10,
+    "scheduler": "cosine"
+  },
+  "reporting": {
+    "save_best_metric": "macro_f1",
+    "save_predictions": true,
+    "save_confusion_matrix": true
+  }
+}

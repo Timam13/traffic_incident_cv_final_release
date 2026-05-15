@@ -1,0 +1,13 @@
+runtime:
+  device: cuda
+  num_workers: 2
+  amp: true
+
+data:
+  clip_num_frames: 16
+  clip_stride: 2
+  input_size: 224
+  batch_size: 2
+
+optimization:
+  epochs: 12

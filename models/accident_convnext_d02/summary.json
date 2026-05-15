@@ -1,0 +1,48 @@
+{
+  "name": "accident_convnext_d02",
+  "title": "Accident ConvNeXt D02",
+  "task": "accident",
+  "role": "best_single_branch",
+  "selection_note": "Best single-branch ConvNeXt accident line after harmonization and grouped-window splitting.",
+  "source_run_dir": "outputs/D02_accident_convnext_balanced_grouped_windows_gap96_real_roadcrop_rtx3080_10gb",
+  "checkpoint_file": "model_best.pt",
+  "training_metrics_path": "metrics.json",
+  "test_metrics_path": null,
+  "training": {
+    "best_epoch": 3,
+    "best_metric": 0.6904761904761905,
+    "best_metric_name": null
+  },
+  "test": {
+    "metrics": {
+      "accuracy": 0.8048780487804879,
+      "precision": 1.0,
+      "recall": 0.6097560975609756,
+      "f1": 0.7575757575757576,
+      "balanced_accuracy": 0.8048780487804879,
+      "roc_auc": 0.8643664485425342,
+      "pr_auc": 0.8969191762113444
+    },
+    "metadata": {
+      "confusion_matrix": [
+        [
+          41,
+          0
+        ],
+        [
+          16,
+          25
+        ]
+      ],
+      "run_dir": "outputs/D02_accident_convnext_balanced_grouped_windows_gap96_real_roadcrop_rtx3080_10gb",
+      "split": "test",
+      "threshold": 0.5,
+      "device": "cuda",
+      "resolved_manifest_path": "outputs/D02_accident_convnext_balanced_grouped_windows_gap96_real_roadcrop_rtx3080_10gb/resolved_test.jsonl",
+      "record_count": 82,
+      "positive_count": 41,
+      "negative_count": 41,
+      "best_threshold_from_sweep": 0.5
+    }
+  }
+}

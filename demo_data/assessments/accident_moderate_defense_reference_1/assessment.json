@@ -1,0 +1,312 @@
+{
+  "summary": {
+    "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+    "frame_count": 106,
+    "fps": 8.0,
+    "duration_sec": 13.25,
+    "window_count": 6,
+    "positive_window_count": 2,
+    "positive_window_ratio": 0.3333,
+    "segment_count": 1,
+    "positive_coverage_sec": 5.25,
+    "first_positive_sec": 8.0,
+    "max_accident_score": 1.0,
+    "mean_accident_score": 0.637383,
+    "median_accident_score": 0.465029,
+    "overall_accident_label": "accident",
+    "dominant_severity_label": "moderate",
+    "accident_threshold": 0.5
+  },
+  "accident": {
+    "run_dir": "outputs/H01_accident_hybrid_grouped_windows_gap96_real_rtx3080_10gb",
+    "task": "accident",
+    "device": "cuda",
+    "records": [
+      {
+        "clip_id": "demo_accident_0000",
+        "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+        "start_frame": 0,
+        "end_frame": 31,
+        "start_sec": 0.0,
+        "end_sec": 4.0,
+        "probabilities": {
+          "no_accident": 0.532245,
+          "accident": 0.467755
+        },
+        "accident_score": 0.467755,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      },
+      {
+        "clip_id": "demo_accident_0001",
+        "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+        "start_frame": 16,
+        "end_frame": 47,
+        "start_sec": 2.0,
+        "end_sec": 6.0,
+        "probabilities": {
+          "no_accident": 0.539167,
+          "accident": 0.460833
+        },
+        "accident_score": 0.460833,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      },
+      {
+        "clip_id": "demo_accident_0002",
+        "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+        "start_frame": 32,
+        "end_frame": 63,
+        "start_sec": 4.0,
+        "end_sec": 8.0,
+        "probabilities": {
+          "no_accident": 0.537696,
+          "accident": 0.462304
+        },
+        "accident_score": 0.462304,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      },
+      {
+        "clip_id": "demo_accident_0003",
+        "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+        "start_frame": 48,
+        "end_frame": 79,
+        "start_sec": 6.0,
+        "end_sec": 10.0,
+        "probabilities": {
+          "no_accident": 0.540546,
+          "accident": 0.459454
+        },
+        "accident_score": 0.459454,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      },
+      {
+        "clip_id": "demo_accident_0004",
+        "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+        "start_frame": 64,
+        "end_frame": 95,
+        "start_sec": 8.0,
+        "end_sec": 12.0,
+        "probabilities": {
+          "no_accident": 0.026048,
+          "accident": 0.973952
+        },
+        "accident_score": 0.973952,
+        "accident_label": "accident",
+        "severity_label": "moderate",
+        "severity_probabilities": {
+          "minor": 0.139904,
+          "moderate": 0.85968,
+          "major": 0.000416
+        }
+      },
+      {
+        "clip_id": "demo_accident_0005",
+        "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+        "start_frame": 74,
+        "end_frame": 105,
+        "start_sec": 9.25,
+        "end_sec": 13.25,
+        "probabilities": {
+          "no_accident": 0.0,
+          "accident": 1.0
+        },
+        "accident_score": 1.0,
+        "accident_label": "accident",
+        "severity_label": "moderate",
+        "severity_probabilities": {
+          "minor": 0.057285,
+          "moderate": 0.937857,
+          "major": 0.004858
+        }
+      }
+    ],
+    "labels": [
+      "no_accident",
+      "accident"
+    ],
+    "video": {
+      "path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+      "frame_count": 106,
+      "fps": 8.0,
+      "duration_sec": 13.25
+    },
+    "windowing": {
+      "window_span_frames": 32,
+      "step_frames": 16,
+      "window_count": 6
+    }
+  },
+  "severity": {
+    "run_dir": "outputs/runpod_severity_push/S13_severity_r3d_uniform_pod",
+    "task": "severity",
+    "device": "cuda",
+    "records": [
+      {
+        "clip_id": "demo_severity_0000",
+        "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+        "start_frame": 64,
+        "end_frame": 95,
+        "start_sec": 8.0,
+        "end_sec": 12.0,
+        "probabilities": {
+          "minor": 0.139904,
+          "moderate": 0.85968,
+          "major": 0.000416
+        },
+        "severity_score": 0.85968,
+        "severity_label": "moderate"
+      },
+      {
+        "clip_id": "demo_severity_0001",
+        "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+        "start_frame": 74,
+        "end_frame": 105,
+        "start_sec": 9.25,
+        "end_sec": 13.25,
+        "probabilities": {
+          "minor": 0.057285,
+          "moderate": 0.937857,
+          "major": 0.004858
+        },
+        "severity_score": 0.937857,
+        "severity_label": "moderate"
+      }
+    ],
+    "labels": [
+      "minor",
+      "moderate",
+      "major"
+    ]
+  },
+  "window_predictions": [
+    {
+      "clip_id": "demo_accident_0000",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+      "start_frame": 0,
+      "end_frame": 31,
+      "start_sec": 0.0,
+      "end_sec": 4.0,
+      "probabilities": {
+        "no_accident": 0.532245,
+        "accident": 0.467755
+      },
+      "accident_score": 0.467755,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    },
+    {
+      "clip_id": "demo_accident_0001",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+      "start_frame": 16,
+      "end_frame": 47,
+      "start_sec": 2.0,
+      "end_sec": 6.0,
+      "probabilities": {
+        "no_accident": 0.539167,
+        "accident": 0.460833
+      },
+      "accident_score": 0.460833,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    },
+    {
+      "clip_id": "demo_accident_0002",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+      "start_frame": 32,
+      "end_frame": 63,
+      "start_sec": 4.0,
+      "end_sec": 8.0,
+      "probabilities": {
+        "no_accident": 0.537696,
+        "accident": 0.462304
+      },
+      "accident_score": 0.462304,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    },
+    {
+      "clip_id": "demo_accident_0003",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+      "start_frame": 48,
+      "end_frame": 79,
+      "start_sec": 6.0,
+      "end_sec": 10.0,
+      "probabilities": {
+        "no_accident": 0.540546,
+        "accident": 0.459454
+      },
+      "accident_score": 0.459454,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    },
+    {
+      "clip_id": "demo_accident_0004",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+      "start_frame": 64,
+      "end_frame": 95,
+      "start_sec": 8.0,
+      "end_sec": 12.0,
+      "probabilities": {
+        "no_accident": 0.026048,
+        "accident": 0.973952
+      },
+      "accident_score": 0.973952,
+      "accident_label": "accident",
+      "severity_label": "moderate",
+      "severity_probabilities": {
+        "minor": 0.139904,
+        "moderate": 0.85968,
+        "major": 0.000416
+      }
+    },
+    {
+      "clip_id": "demo_accident_0005",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+      "start_frame": 74,
+      "end_frame": 105,
+      "start_sec": 9.25,
+      "end_sec": 13.25,
+      "probabilities": {
+        "no_accident": 0.0,
+        "accident": 1.0
+      },
+      "accident_score": 1.0,
+      "accident_label": "accident",
+      "severity_label": "moderate",
+      "severity_probabilities": {
+        "minor": 0.057285,
+        "moderate": 0.937857,
+        "major": 0.004858
+      }
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "segment_0001",
+      "start_sec": 8.0,
+      "end_sec": 13.25,
+      "start_frame": 64,
+      "end_frame": 105,
+      "window_count": 2,
+      "max_accident_score": 1.0,
+      "severity_label": "moderate",
+      "severity_vote_counts": {
+        "moderate": 2
+      }
+    }
+  ],
+  "severity_vote_counts": {
+    "moderate": 2
+  }
+}

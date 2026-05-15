@@ -1,0 +1,66 @@
+dataset:
+  name: balanced_accident
+  builder: balanced_accident
+  root_dir: "${TRAFFIC_INCIDENT_BALANCED_ROOT:-../Balanced Accident Video Dataset}"
+  output_manifest_binary: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_binary_all.jsonl"
+  output_manifests_binary:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_binary_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_binary_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_binary_test.jsonl"
+  output_manifest_severity: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_all.jsonl"
+  output_manifests_severity:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_test.jsonl"
+  video_extensions: [".mp4", ".avi", ".mov", ".mkv"]
+  split_patterns:
+    train: ["train", "Train"]
+    val: ["val", "valid", "validation"]
+    test: ["test", "Test"]
+  severity_dirs: ["minor", "moderate", "major"]
+  augmented_prefixes: ["aug"]
+  tags: []
+  real_tags: ["real_video"]
+  augmented_tags: ["augmented_source"]
+  include_substrings: []
+  exclude_substrings: []
+  expectations:
+    total_videos: 1500
+    split_counts:
+      train: 1050
+      val: 225
+      test: 225
+    class_counts:
+      train:
+        major: 350
+        minor: 350
+        moderate: 350
+      val:
+        major: 75
+        minor: 75
+        moderate: 75
+      test:
+        major: 75
+        minor: 75
+        moderate: 75
+    augmented_counts:
+      train: 324
+      val: 70
+      test: 76
+    real_counts:
+      train: 726
+      val: 155
+      test: 149
+    augmented_class_counts:
+      train:
+        major: 217
+        minor: 107
+        moderate: 0
+      val:
+        major: 49
+        minor: 21
+        moderate: 0
+      test:
+        major: 51
+        minor: 25
+        moderate: 0

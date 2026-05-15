@@ -1,0 +1,23 @@
+inherits:
+  - configs/base.yaml
+
+experiment:
+  id: B01_severity_convnext_baseline
+  task: severity
+  manifest_paths:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_test.jsonl"
+
+model:
+  family: convnext_baseline
+  encoder_name: convnext_tiny
+  temporal_pooling: mean
+  pretrained: true
+  num_classes: 3
+
+training:
+  loss: cross_entropy
+
+evaluation:
+  metrics: [accuracy, macro_f1, balanced_accuracy]

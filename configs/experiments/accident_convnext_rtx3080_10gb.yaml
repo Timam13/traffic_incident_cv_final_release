@@ -1,0 +1,6 @@
+inherits:
+  - configs/experiments/accident_convnext.yaml
+  - configs/presets/rtx3080_10gb_convnext.yaml
+
+experiment:
+  id: A01_accident_convnext_rtx3080_10gb

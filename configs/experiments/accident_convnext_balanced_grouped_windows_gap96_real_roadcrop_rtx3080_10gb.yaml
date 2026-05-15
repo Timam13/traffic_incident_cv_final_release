@@ -1,0 +1,11 @@
+inherits:
+  - configs/experiments/accident_convnext_balanced_grouped_windows_gap96_real_fitcheck.yaml
+
+project:
+  output_dir: outputs
+
+optimization:
+  epochs: 10
+
+experiment:
+  id: D02_accident_convnext_balanced_grouped_windows_gap96_real_roadcrop_rtx3080_10gb

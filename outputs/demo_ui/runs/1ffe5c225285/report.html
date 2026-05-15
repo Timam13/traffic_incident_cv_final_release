@@ -1,0 +1,558 @@
+<!doctype html>
+    <html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traffic Incident CV Demo Report</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3eee5;
+      --panel: rgba(255,255,255,0.82);
+      --line: rgba(31, 28, 26, 0.12);
+      --ink: #1c1814;
+      --muted: #6f665c;
+      --accent: #0d6b55;
+      --warn: #9a3b1f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Inter", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(13,107,85,0.10), transparent 32%),
+        radial-gradient(circle at top right, rgba(154,59,31,0.10), transparent 28%),
+        linear-gradient(180deg, #f8f4ed 0%, var(--bg) 100%);
+    }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 28px; }
+    .hero, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 16px 42px rgba(44, 35, 24, 0.10);
+      backdrop-filter: blur(18px);
+    }
+    .hero { padding: 28px; margin-bottom: 20px; }
+    .hero h1 { margin: 0 0 10px; font-size: 42px; line-height: 1.05; }
+    .hero p { margin: 6px 0; color: var(--muted); }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.72);
+    }
+    .label {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .value {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .panel { padding: 22px; margin-bottom: 18px; }
+    .viz-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .viz-card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.70);
+      padding: 14px;
+    }
+    .viz-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .empty-viz {
+      padding: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .code {
+      overflow: auto;
+      white-space: pre-wrap;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 12px;
+      background: rgba(28,24,20,0.06);
+      border-radius: 18px;
+      padding: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="label">Demo report</div>
+      <h1>Video assessment and auto-annotation</h1>
+      <p>/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4</p>
+      <p>This report is built from the current cascade: accident detection first, then severity on positive windows.</p>
+      <div class="cards"><div class='card'><div class='label'>Overall accident label</div><div class='value'>accident</div></div><div class='card'><div class='label'>Max accident score</div><div class='value'>0.6318</div></div><div class='card'><div class='label'>Positive windows</div><div class='value'>5</div></div><div class='card'><div class='label'>Dominant severity</div><div class='value'>major</div></div><div class='card'><div class='label'>Mean score</div><div class='value'>0.5915</div></div><div class='card'><div class='label'>Median score</div><div class='value'>0.5858</div></div><div class='card'><div class='label'>Segments</div><div class='value'>1</div></div><div class='card'><div class='label'>First positive, sec</div><div class='value'>0.0000</div></div><div class='card'><div class='label'>Coverage, sec</div><div class='value'>12.0000</div></div><div class='card'><div class='label'>Duration, sec</div><div class='value'>12.0000</div></div><div class='card'><div class='label'>FPS</div><div class='value'>8.00</div></div></div>
+    </section>
+    <section class="panel">
+      <div class="label">Visual summary</div>
+      <div class="viz-grid">
+        <div class="viz-card">
+    <svg viewBox="0 0 1120 270" role="img" aria-label="Score timeline by window">
+      <defs>
+        <linearGradient id="scoreGradient" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#0d6b55" stop-opacity="0.34"></stop>
+          <stop offset="100%" stop-color="#0d6b55" stop-opacity="0.03"></stop>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1120" height="270" rx="24" fill="rgba(255,255,255,0.72)"></rect>
+      <line x1='72' y1='26.00' x2='1072' y2='26.00' stroke='rgba(31,26,21,0.10)' stroke-width='1' /><line x1='72' y1='58.80' x2='1072' y2='58.80' stroke='rgba(31,26,21,0.10)' stroke-width='1' /><line x1='72' y1='91.60' x2='1072' y2='91.60' stroke='rgba(31,26,21,0.10)' stroke-width='1' /><line x1='72' y1='124.40' x2='1072' y2='124.40' stroke='rgba(31,26,21,0.10)' stroke-width='1' /><line x1='72' y1='157.20' x2='1072' y2='157.20' stroke='rgba(31,26,21,0.10)' stroke-width='1' /><line x1='72' y1='190.00' x2='1072' y2='190.00' stroke='rgba(31,26,21,0.10)' stroke-width='1' /><line x1='72.00' y1='26' x2='72.00' y2='190' stroke='rgba(31,26,21,0.08)' stroke-width='1' /><line x1='238.67' y1='26' x2='238.67' y2='190' stroke='rgba(31,26,21,0.08)' stroke-width='1' /><line x1='405.33' y1='26' x2='405.33' y2='190' stroke='rgba(31,26,21,0.08)' stroke-width='1' /><line x1='572.00' y1='26' x2='572.00' y2='190' stroke='rgba(31,26,21,0.08)' stroke-width='1' /><line x1='738.67' y1='26' x2='738.67' y2='190' stroke='rgba(31,26,21,0.08)' stroke-width='1' /><line x1='905.33' y1='26' x2='905.33' y2='190' stroke='rgba(31,26,21,0.08)' stroke-width='1' /><line x1='1072.00' y1='26' x2='1072.00' y2='190' stroke='rgba(31,26,21,0.08)' stroke-width='1' />
+      <text x='60' y='30.00' text-anchor='end' font-size='11' fill='#6f665c'>1.0</text><text x='60' y='62.80' text-anchor='end' font-size='11' fill='#6f665c'>0.8</text><text x='60' y='95.60' text-anchor='end' font-size='11' fill='#6f665c'>0.6</text><text x='60' y='128.40' text-anchor='end' font-size='11' fill='#6f665c'>0.4</text><text x='60' y='161.20' text-anchor='end' font-size='11' fill='#6f665c'>0.2</text><text x='60' y='194.00' text-anchor='end' font-size='11' fill='#6f665c'>0.0</text><text x='72.00' y='208.00' text-anchor='middle' font-size='11' fill='#6f665c'>0.0s</text><text x='238.67' y='208.00' text-anchor='middle' font-size='11' fill='#6f665c'>2.0s</text><text x='405.33' y='208.00' text-anchor='middle' font-size='11' fill='#6f665c'>4.0s</text><text x='572.00' y='208.00' text-anchor='middle' font-size='11' fill='#6f665c'>6.0s</text><text x='738.67' y='208.00' text-anchor='middle' font-size='11' fill='#6f665c'>8.0s</text><text x='905.33' y='208.00' text-anchor='middle' font-size='11' fill='#6f665c'>10.0s</text><text x='1072.00' y='208.00' text-anchor='middle' font-size='11' fill='#6f665c'>12.0s</text>
+      <line x1='72' y1='108.00' x2='1072' y2='108.00' stroke='#a03c22' stroke-width='2' stroke-dasharray='6 6' /><text x='1068.00' y='100.00' text-anchor='end' font-size='11' fill='#a03c22'>threshold 0.50</text>
+      <polygon points="72,190 238.67,86.38 405.33,87.84 572.00,93.92 738.67,98.29 905.33,98.53 1072,190" fill="url(#scoreGradient)"></polygon>
+      <polyline fill="none" stroke="#0d6b55" stroke-width="3" points="238.67,86.38 405.33,87.84 572.00,93.92 738.67,98.29 905.33,98.53"></polyline>
+      <circle cx='238.67' cy='86.38' r='5' fill='#a03c22' stroke='white' stroke-width='2' /><circle cx='405.33' cy='87.84' r='5' fill='#a03c22' stroke='white' stroke-width='2' /><circle cx='572.00' cy='93.92' r='5' fill='#a03c22' stroke='white' stroke-width='2' /><circle cx='738.67' cy='98.29' r='5' fill='#a03c22' stroke='white' stroke-width='2' /><circle cx='905.33' cy='98.53' r='5' fill='#a03c22' stroke='white' stroke-width='2' />
+      <rect x='72.00' y='222.00' width='1000.00' height='16' rx='8' fill='#a03c22' fill-opacity='0.92' />
+      <text x='572.00' y='234.00' text-anchor='middle' font-size='10' fill='white'>major</text>
+      <text x="72" y="260.00" font-size="11" fill="#6f665c">Annotation segments</text>
+    </svg>
+    </div>
+        <div class="viz-card">
+    <svg viewBox="0 0 420 210" role="img" aria-label="Severity vote counts">
+      <rect x="0" y="0" width="420" height="210" rx="22" fill="rgba(255,255,255,0.72)"></rect>
+      <text x="18" y="22" font-size="12" fill="#6f665c" style="letter-spacing:0.14em;text-transform:uppercase;">Severity votes</text>
+      <text x='18' y='49.00' font-size='13' fill='#6f665c'>major</text><rect x='96' y='30.00' width='288.00' height='28' rx='14' fill='#a03c22' /><text x='394.00' y='49.00' font-size='13' fill='#1c1814'>4</text><text x='18' y='95.00' font-size='13' fill='#6f665c'>minor</text><rect x='96' y='76.00' width='72.00' height='28' rx='14' fill='#0d6b55' /><text x='178.00' y='95.00' font-size='13' fill='#1c1814'>1</text>
+    </svg>
+    </div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="label">Annotation segments</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Segment</th>
+            <th>Start, sec</th>
+            <th>End, sec</th>
+            <th>Severity</th>
+            <th>Max score</th>
+            <th>Windows</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>segment_0001</td><td>0.0000</td><td>12.0000</td><td>major</td><td>0.6318</td><td>5</td></tr></tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <div class="label">Top-scoring windows</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Start, sec</th>
+            <th>End, sec</th>
+            <th>Accident score</th>
+            <th>Severity</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>demo_accident_0000</td><td>0.0000</td><td>4.0000</td><td>0.6318</td><td>major</td></tr><tr><td>demo_accident_0001</td><td>2.0000</td><td>6.0000</td><td>0.6229</td><td>major</td></tr><tr><td>demo_accident_0002</td><td>4.0000</td><td>8.0000</td><td>0.5858</td><td>major</td></tr><tr><td>demo_accident_0003</td><td>6.0000</td><td>10.0000</td><td>0.5592</td><td>major</td></tr><tr><td>demo_accident_0004</td><td>8.0000</td><td>12.0000</td><td>0.5577</td><td>minor</td></tr></tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <div class="label">Window predictions</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Start, sec</th>
+            <th>End, sec</th>
+            <th>Accident score</th>
+            <th>Accident label</th>
+            <th>Severity</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>demo_accident_0000</td><td>0.0000</td><td>4.0000</td><td>0.6318</td><td>accident</td><td>major</td></tr><tr><td>demo_accident_0001</td><td>2.0000</td><td>6.0000</td><td>0.6229</td><td>accident</td><td>major</td></tr><tr><td>demo_accident_0002</td><td>4.0000</td><td>8.0000</td><td>0.5858</td><td>accident</td><td>major</td></tr><tr><td>demo_accident_0003</td><td>6.0000</td><td>10.0000</td><td>0.5592</td><td>accident</td><td>major</td></tr><tr><td>demo_accident_0004</td><td>8.0000</td><td>12.0000</td><td>0.5577</td><td>accident</td><td>minor</td></tr></tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <div class="label">Raw JSON</div>
+      <div class="code">{
+  &quot;summary&quot;: {
+    &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+    &quot;frame_count&quot;: 96,
+    &quot;fps&quot;: 8.0,
+    &quot;duration_sec&quot;: 12.0,
+    &quot;window_count&quot;: 5,
+    &quot;positive_window_count&quot;: 5,
+    &quot;positive_window_ratio&quot;: 1.0,
+    &quot;segment_count&quot;: 1,
+    &quot;positive_coverage_sec&quot;: 12.0,
+    &quot;first_positive_sec&quot;: 0.0,
+    &quot;max_accident_score&quot;: 0.631802,
+    &quot;mean_accident_score&quot;: 0.591499,
+    &quot;median_accident_score&quot;: 0.585849,
+    &quot;overall_accident_label&quot;: &quot;accident&quot;,
+    &quot;dominant_severity_label&quot;: &quot;major&quot;,
+    &quot;accident_threshold&quot;: 0.5
+  },
+  &quot;accident&quot;: {
+    &quot;run_dir&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/models/hybrid&quot;,
+    &quot;task&quot;: &quot;accident&quot;,
+    &quot;device&quot;: &quot;cpu&quot;,
+    &quot;records&quot;: [
+      {
+        &quot;clip_id&quot;: &quot;demo_accident_0000&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 0,
+        &quot;end_frame&quot;: 31,
+        &quot;start_sec&quot;: 0.0,
+        &quot;end_sec&quot;: 4.0,
+        &quot;probabilities&quot;: {
+          &quot;no_accident&quot;: 0.368198,
+          &quot;accident&quot;: 0.631802
+        },
+        &quot;accident_score&quot;: 0.631802,
+        &quot;accident_label&quot;: &quot;accident&quot;,
+        &quot;severity_label&quot;: &quot;major&quot;,
+        &quot;severity_probabilities&quot;: {
+          &quot;minor&quot;: 0.195402,
+          &quot;moderate&quot;: 0.013602,
+          &quot;major&quot;: 0.790996
+        }
+      },
+      {
+        &quot;clip_id&quot;: &quot;demo_accident_0001&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 16,
+        &quot;end_frame&quot;: 47,
+        &quot;start_sec&quot;: 2.0,
+        &quot;end_sec&quot;: 6.0,
+        &quot;probabilities&quot;: {
+          &quot;no_accident&quot;: 0.377077,
+          &quot;accident&quot;: 0.622923
+        },
+        &quot;accident_score&quot;: 0.622923,
+        &quot;accident_label&quot;: &quot;accident&quot;,
+        &quot;severity_label&quot;: &quot;major&quot;,
+        &quot;severity_probabilities&quot;: {
+          &quot;minor&quot;: 0.09647,
+          &quot;moderate&quot;: 0.175963,
+          &quot;major&quot;: 0.727567
+        }
+      },
+      {
+        &quot;clip_id&quot;: &quot;demo_accident_0002&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 32,
+        &quot;end_frame&quot;: 63,
+        &quot;start_sec&quot;: 4.0,
+        &quot;end_sec&quot;: 8.0,
+        &quot;probabilities&quot;: {
+          &quot;no_accident&quot;: 0.414151,
+          &quot;accident&quot;: 0.585849
+        },
+        &quot;accident_score&quot;: 0.585849,
+        &quot;accident_label&quot;: &quot;accident&quot;,
+        &quot;severity_label&quot;: &quot;major&quot;,
+        &quot;severity_probabilities&quot;: {
+          &quot;minor&quot;: 0.034068,
+          &quot;moderate&quot;: 0.088664,
+          &quot;major&quot;: 0.877268
+        }
+      },
+      {
+        &quot;clip_id&quot;: &quot;demo_accident_0003&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 48,
+        &quot;end_frame&quot;: 79,
+        &quot;start_sec&quot;: 6.0,
+        &quot;end_sec&quot;: 10.0,
+        &quot;probabilities&quot;: {
+          &quot;no_accident&quot;: 0.440811,
+          &quot;accident&quot;: 0.559189
+        },
+        &quot;accident_score&quot;: 0.559189,
+        &quot;accident_label&quot;: &quot;accident&quot;,
+        &quot;severity_label&quot;: &quot;major&quot;,
+        &quot;severity_probabilities&quot;: {
+          &quot;minor&quot;: 0.14419,
+          &quot;moderate&quot;: 0.044285,
+          &quot;major&quot;: 0.811525
+        }
+      },
+      {
+        &quot;clip_id&quot;: &quot;demo_accident_0004&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 64,
+        &quot;end_frame&quot;: 95,
+        &quot;start_sec&quot;: 8.0,
+        &quot;end_sec&quot;: 12.0,
+        &quot;probabilities&quot;: {
+          &quot;no_accident&quot;: 0.442267,
+          &quot;accident&quot;: 0.557733
+        },
+        &quot;accident_score&quot;: 0.557733,
+        &quot;accident_label&quot;: &quot;accident&quot;,
+        &quot;severity_label&quot;: &quot;minor&quot;,
+        &quot;severity_probabilities&quot;: {
+          &quot;minor&quot;: 0.601498,
+          &quot;moderate&quot;: 0.013602,
+          &quot;major&quot;: 0.3849
+        }
+      }
+    ],
+    &quot;labels&quot;: [
+      &quot;no_accident&quot;,
+      &quot;accident&quot;
+    ],
+    &quot;video&quot;: {
+      &quot;path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+      &quot;frame_count&quot;: 96,
+      &quot;fps&quot;: 8.0,
+      &quot;duration_sec&quot;: 12.0
+    },
+    &quot;windowing&quot;: {
+      &quot;window_span_frames&quot;: 32,
+      &quot;step_frames&quot;: 16,
+      &quot;window_count&quot;: 5
+    }
+  },
+  &quot;severity&quot;: {
+    &quot;run_dir&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/models/severity&quot;,
+    &quot;task&quot;: &quot;severity&quot;,
+    &quot;device&quot;: &quot;cpu&quot;,
+    &quot;records&quot;: [
+      {
+        &quot;clip_id&quot;: &quot;demo_severity_0000&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 0,
+        &quot;end_frame&quot;: 31,
+        &quot;start_sec&quot;: 0.0,
+        &quot;end_sec&quot;: 4.0,
+        &quot;probabilities&quot;: {
+          &quot;minor&quot;: 0.195402,
+          &quot;moderate&quot;: 0.013602,
+          &quot;major&quot;: 0.790996
+        },
+        &quot;severity_score&quot;: 0.790996,
+        &quot;severity_label&quot;: &quot;major&quot;
+      },
+      {
+        &quot;clip_id&quot;: &quot;demo_severity_0001&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 16,
+        &quot;end_frame&quot;: 47,
+        &quot;start_sec&quot;: 2.0,
+        &quot;end_sec&quot;: 6.0,
+        &quot;probabilities&quot;: {
+          &quot;minor&quot;: 0.09647,
+          &quot;moderate&quot;: 0.175963,
+          &quot;major&quot;: 0.727567
+        },
+        &quot;severity_score&quot;: 0.727567,
+        &quot;severity_label&quot;: &quot;major&quot;
+      },
+      {
+        &quot;clip_id&quot;: &quot;demo_severity_0002&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 32,
+        &quot;end_frame&quot;: 63,
+        &quot;start_sec&quot;: 4.0,
+        &quot;end_sec&quot;: 8.0,
+        &quot;probabilities&quot;: {
+          &quot;minor&quot;: 0.034068,
+          &quot;moderate&quot;: 0.088664,
+          &quot;major&quot;: 0.877268
+        },
+        &quot;severity_score&quot;: 0.877268,
+        &quot;severity_label&quot;: &quot;major&quot;
+      },
+      {
+        &quot;clip_id&quot;: &quot;demo_severity_0003&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 48,
+        &quot;end_frame&quot;: 79,
+        &quot;start_sec&quot;: 6.0,
+        &quot;end_sec&quot;: 10.0,
+        &quot;probabilities&quot;: {
+          &quot;minor&quot;: 0.14419,
+          &quot;moderate&quot;: 0.044285,
+          &quot;major&quot;: 0.811525
+        },
+        &quot;severity_score&quot;: 0.811525,
+        &quot;severity_label&quot;: &quot;major&quot;
+      },
+      {
+        &quot;clip_id&quot;: &quot;demo_severity_0004&quot;,
+        &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+        &quot;start_frame&quot;: 64,
+        &quot;end_frame&quot;: 95,
+        &quot;start_sec&quot;: 8.0,
+        &quot;end_sec&quot;: 12.0,
+        &quot;probabilities&quot;: {
+          &quot;minor&quot;: 0.601498,
+          &quot;moderate&quot;: 0.013602,
+          &quot;major&quot;: 0.3849
+        },
+        &quot;severity_score&quot;: 0.601498,
+        &quot;severity_label&quot;: &quot;minor&quot;
+      }
+    ],
+    &quot;labels&quot;: [
+      &quot;minor&quot;,
+      &quot;moderate&quot;,
+      &quot;major&quot;
+    ]
+  },
+  &quot;window_predictions&quot;: [
+    {
+      &quot;clip_id&quot;: &quot;demo_accident_0000&quot;,
+      &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+      &quot;start_frame&quot;: 0,
+      &quot;end_frame&quot;: 31,
+      &quot;start_sec&quot;: 0.0,
+      &quot;end_sec&quot;: 4.0,
+      &quot;probabilities&quot;: {
+        &quot;no_accident&quot;: 0.368198,
+        &quot;accident&quot;: 0.631802
+      },
+      &quot;accident_score&quot;: 0.631802,
+      &quot;accident_label&quot;: &quot;accident&quot;,
+      &quot;severity_label&quot;: &quot;major&quot;,
+      &quot;severity_probabilities&quot;: {
+        &quot;minor&quot;: 0.195402,
+        &quot;moderate&quot;: 0.013602,
+        &quot;major&quot;: 0.790996
+      }
+    },
+    {
+      &quot;clip_id&quot;: &quot;demo_accident_0001&quot;,
+      &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+      &quot;start_frame&quot;: 16,
+      &quot;end_frame&quot;: 47,
+      &quot;start_sec&quot;: 2.0,
+      &quot;end_sec&quot;: 6.0,
+      &quot;probabilities&quot;: {
+        &quot;no_accident&quot;: 0.377077,
+        &quot;accident&quot;: 0.622923
+      },
+      &quot;accident_score&quot;: 0.622923,
+      &quot;accident_label&quot;: &quot;accident&quot;,
+      &quot;severity_label&quot;: &quot;major&quot;,
+      &quot;severity_probabilities&quot;: {
+        &quot;minor&quot;: 0.09647,
+        &quot;moderate&quot;: 0.175963,
+        &quot;major&quot;: 0.727567
+      }
+    },
+    {
+      &quot;clip_id&quot;: &quot;demo_accident_0002&quot;,
+      &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+      &quot;start_frame&quot;: 32,
+      &quot;end_frame&quot;: 63,
+      &quot;start_sec&quot;: 4.0,
+      &quot;end_sec&quot;: 8.0,
+      &quot;probabilities&quot;: {
+        &quot;no_accident&quot;: 0.414151,
+        &quot;accident&quot;: 0.585849
+      },
+      &quot;accident_score&quot;: 0.585849,
+      &quot;accident_label&quot;: &quot;accident&quot;,
+      &quot;severity_label&quot;: &quot;major&quot;,
+      &quot;severity_probabilities&quot;: {
+        &quot;minor&quot;: 0.034068,
+        &quot;moderate&quot;: 0.088664,
+        &quot;major&quot;: 0.877268
+      }
+    },
+    {
+      &quot;clip_id&quot;: &quot;demo_accident_0003&quot;,
+      &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+      &quot;start_frame&quot;: 48,
+      &quot;end_frame&quot;: 79,
+      &quot;start_sec&quot;: 6.0,
+      &quot;end_sec&quot;: 10.0,
+      &quot;probabilities&quot;: {
+        &quot;no_accident&quot;: 0.440811,
+        &quot;accident&quot;: 0.559189
+      },
+      &quot;accident_score&quot;: 0.559189,
+      &quot;accident_label&quot;: &quot;accident&quot;,
+      &quot;severity_label&quot;: &quot;major&quot;,
+      &quot;severity_probabilities&quot;: {
+        &quot;minor&quot;: 0.14419,
+        &quot;moderate&quot;: 0.044285,
+        &quot;major&quot;: 0.811525
+      }
+    },
+    {
+      &quot;clip_id&quot;: &quot;demo_accident_0004&quot;,
+      &quot;video_path&quot;: &quot;/Users/timurmamedov/Downloads/traffic_incident_cv_final_release/demo_data/videos/positive/accident_major_defense_reference.mp4&quot;,
+      &quot;start_frame&quot;: 64,
+      &quot;end_frame&quot;: 95,
+      &quot;start_sec&quot;: 8.0,
+      &quot;end_sec&quot;: 12.0,
+      &quot;probabilities&quot;: {
+        &quot;no_accident&quot;: 0.442267,
+        &quot;accident&quot;: 0.557733
+      },
+      &quot;accident_score&quot;: 0.557733,
+      &quot;accident_label&quot;: &quot;accident&quot;,
+      &quot;severity_label&quot;: &quot;minor&quot;,
+      &quot;severity_probabilities&quot;: {
+        &quot;minor&quot;: 0.601498,
+        &quot;moderate&quot;: 0.013602,
+        &quot;major&quot;: 0.3849
+      }
+    }
+  ],
+  &quot;segments&quot;: [
+    {
+      &quot;segment_id&quot;: &quot;segment_0001&quot;,
+      &quot;start_sec&quot;: 0.0,
+      &quot;end_sec&quot;: 12.0,
+      &quot;start_frame&quot;: 0,
+      &quot;end_frame&quot;: 95,
+      &quot;window_count&quot;: 5,
+      &quot;max_accident_score&quot;: 0.631802,
+      &quot;severity_label&quot;: &quot;major&quot;,
+      &quot;severity_vote_counts&quot;: {
+        &quot;major&quot;: 4,
+        &quot;minor&quot;: 1
+      }
+    }
+  ],
+  &quot;severity_vote_counts&quot;: {
+    &quot;major&quot;: 4,
+    &quot;minor&quot;: 1
+  }
+}</div>
+    </section>
+  </div>
+</body>
+</html>

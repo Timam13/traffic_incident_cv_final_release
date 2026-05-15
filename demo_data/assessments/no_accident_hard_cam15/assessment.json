@@ -1,0 +1,207 @@
+{
+  "summary": {
+    "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+    "frame_count": 96,
+    "fps": 8.0,
+    "duration_sec": 12.0,
+    "window_count": 5,
+    "positive_window_count": 0,
+    "positive_window_ratio": 0.0,
+    "segment_count": 0,
+    "positive_coverage_sec": 0,
+    "first_positive_sec": null,
+    "max_accident_score": 0.344276,
+    "mean_accident_score": 0.342676,
+    "median_accident_score": 0.34273,
+    "overall_accident_label": "no_accident",
+    "dominant_severity_label": null,
+    "accident_threshold": 0.5
+  },
+  "accident": {
+    "run_dir": "outputs/H01_accident_hybrid_grouped_windows_gap96_real_rtx3080_10gb",
+    "task": "accident",
+    "device": "cuda",
+    "records": [
+      {
+        "clip_id": "demo_accident_0000",
+        "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+        "start_frame": 0,
+        "end_frame": 31,
+        "start_sec": 0.0,
+        "end_sec": 4.0,
+        "probabilities": {
+          "no_accident": 0.658746,
+          "accident": 0.341254
+        },
+        "accident_score": 0.341254,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      },
+      {
+        "clip_id": "demo_accident_0001",
+        "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+        "start_frame": 16,
+        "end_frame": 47,
+        "start_sec": 2.0,
+        "end_sec": 6.0,
+        "probabilities": {
+          "no_accident": 0.658497,
+          "accident": 0.341503
+        },
+        "accident_score": 0.341503,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      },
+      {
+        "clip_id": "demo_accident_0002",
+        "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+        "start_frame": 32,
+        "end_frame": 63,
+        "start_sec": 4.0,
+        "end_sec": 8.0,
+        "probabilities": {
+          "no_accident": 0.65727,
+          "accident": 0.34273
+        },
+        "accident_score": 0.34273,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      },
+      {
+        "clip_id": "demo_accident_0003",
+        "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+        "start_frame": 48,
+        "end_frame": 79,
+        "start_sec": 6.0,
+        "end_sec": 10.0,
+        "probabilities": {
+          "no_accident": 0.656385,
+          "accident": 0.343615
+        },
+        "accident_score": 0.343615,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      },
+      {
+        "clip_id": "demo_accident_0004",
+        "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+        "start_frame": 64,
+        "end_frame": 95,
+        "start_sec": 8.0,
+        "end_sec": 12.0,
+        "probabilities": {
+          "no_accident": 0.655724,
+          "accident": 0.344276
+        },
+        "accident_score": 0.344276,
+        "accident_label": "no_accident",
+        "severity_label": null,
+        "severity_probabilities": {}
+      }
+    ],
+    "labels": [
+      "no_accident",
+      "accident"
+    ],
+    "video": {
+      "path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+      "frame_count": 96,
+      "fps": 8.0,
+      "duration_sec": 12.0
+    },
+    "windowing": {
+      "window_span_frames": 32,
+      "step_frames": 16,
+      "window_count": 5
+    }
+  },
+  "severity": null,
+  "window_predictions": [
+    {
+      "clip_id": "demo_accident_0000",
+      "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+      "start_frame": 0,
+      "end_frame": 31,
+      "start_sec": 0.0,
+      "end_sec": 4.0,
+      "probabilities": {
+        "no_accident": 0.658746,
+        "accident": 0.341254
+      },
+      "accident_score": 0.341254,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    },
+    {
+      "clip_id": "demo_accident_0001",
+      "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+      "start_frame": 16,
+      "end_frame": 47,
+      "start_sec": 2.0,
+      "end_sec": 6.0,
+      "probabilities": {
+        "no_accident": 0.658497,
+        "accident": 0.341503
+      },
+      "accident_score": 0.341503,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    },
+    {
+      "clip_id": "demo_accident_0002",
+      "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+      "start_frame": 32,
+      "end_frame": 63,
+      "start_sec": 4.0,
+      "end_sec": 8.0,
+      "probabilities": {
+        "no_accident": 0.65727,
+        "accident": 0.34273
+      },
+      "accident_score": 0.34273,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    },
+    {
+      "clip_id": "demo_accident_0003",
+      "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+      "start_frame": 48,
+      "end_frame": 79,
+      "start_sec": 6.0,
+      "end_sec": 10.0,
+      "probabilities": {
+        "no_accident": 0.656385,
+        "accident": 0.343615
+      },
+      "accident_score": 0.343615,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    },
+    {
+      "clip_id": "demo_accident_0004",
+      "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+      "start_frame": 64,
+      "end_frame": 95,
+      "start_sec": 8.0,
+      "end_sec": 12.0,
+      "probabilities": {
+        "no_accident": 0.655724,
+        "accident": 0.344276
+      },
+      "accident_score": 0.344276,
+      "accident_label": "no_accident",
+      "severity_label": null,
+      "severity_probabilities": {}
+    }
+  ],
+  "segments": [],
+  "severity_vote_counts": {}
+}

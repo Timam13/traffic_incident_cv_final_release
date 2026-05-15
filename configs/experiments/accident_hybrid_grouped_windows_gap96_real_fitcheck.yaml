@@ -1,0 +1,31 @@
+inherits:
+  - configs/experiments/accident_convnext_balanced_grouped_windows_gap96_real_fitcheck.yaml
+
+experiment:
+  id: H01q_accident_hybrid_grouped_windows_gap96_real_fitcheck
+
+model:
+  family: yolo_convnext_hybrid
+  encoder_name: convnext_tiny
+  pretrained: true
+  fusion_mode: mean_logits
+  use_global_branch: true
+  use_local_branch: true
+  local_crop_top: 0.35
+  local_crop_left: 0.10
+  local_crop_bottom: 1.0
+  local_crop_right: 0.90
+
+data:
+  batch_size: 2
+  spatial_crop:
+    enabled: false
+    top: 0.0
+    left: 0.0
+    bottom: 1.0
+    right: 1.0
+
+optimization:
+  epochs: 1
+  lr: 0.0001
+  weight_decay: 0.0005

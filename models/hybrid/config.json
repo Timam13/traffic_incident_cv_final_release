@@ -1,0 +1,77 @@
+{
+  "experiment_id": "H01_accident_hybrid_grouped_windows_gap96_real_rtx3080_10gb",
+  "task": "accident",
+  "manifest_paths": {
+    "train": "data/manifests/balanced_grouped_windows_gap96/balanced_grouped_windows_train.jsonl",
+    "val": "data/manifests/balanced_grouped_windows_gap96/balanced_grouped_windows_val.jsonl",
+    "test": "data/manifests/balanced_grouped_windows_gap96/balanced_grouped_windows_test.jsonl"
+  },
+  "model": {
+    "family": "yolo_convnext_hybrid",
+    "encoder_name": "convnext_tiny",
+    "temporal_pooling": "mean",
+    "pretrained": true,
+    "num_classes": 2,
+    "fusion_mode": "mean_logits",
+    "use_global_branch": true,
+    "use_local_branch": true,
+    "local_crop_top": 0.35,
+    "local_crop_left": 0.1,
+    "local_crop_bottom": 1.0,
+    "local_crop_right": 0.9
+  },
+  "training": {
+    "loss": "cross_entropy",
+    "label_smoothing": 0.0
+  },
+  "runtime": {
+    "device": "cuda",
+    "num_workers": 0,
+    "amp": true,
+    "log_interval": 20
+  },
+  "data": {
+    "clip_num_frames": 16,
+    "clip_stride": 2,
+    "input_size": 160,
+    "batch_size": 2,
+    "train_clip_sampler": "uniform",
+    "eval_clip_sampler": "uniform",
+    "spatial_crop": {
+      "enabled": false,
+      "top": 0.0,
+      "left": 0.0,
+      "bottom": 1.0,
+      "right": 1.0
+    }
+  },
+  "project": {
+    "name": "traffic_incident_cv",
+    "output_dir": "outputs",
+    "seed": 42,
+    "deterministic": true
+  },
+  "evaluation": {
+    "metrics": [
+      "accuracy",
+      "balanced_accuracy",
+      "precision",
+      "recall",
+      "f1",
+      "roc_auc",
+      "pr_auc"
+    ]
+  },
+  "optimization": {
+    "optimizer": "adamw",
+    "lr": 0.0001,
+    "weight_decay": 0.0005,
+    "epochs": 8,
+    "scheduler": "cosine"
+  },
+  "reporting": {
+    "save_best_metric": "balanced_accuracy",
+    "save_predictions": true,
+    "save_confusion_matrix": true
+  }
+}

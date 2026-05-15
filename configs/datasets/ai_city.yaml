@@ -1,0 +1,43 @@
+dataset:
+  name: ai_city
+  builder: ai_city
+  root_dir: "${TRAFFIC_INCIDENT_AI_CITY_ROOT:-../AIC21_Track1_Vehicle_Counting}"
+  output_manifest: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/ai_city_accident_all.jsonl"
+  output_manifests:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/ai_city_accident_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/ai_city_accident_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/ai_city_accident_test.jsonl"
+  task: accident
+  class_policy:
+    binary_label: no_accident
+    severity_label: null
+  video_extensions: [".mp4", ".avi", ".mov", ".mkv"]
+  stats_path: "${TRAFFIC_INCIDENT_AI_CITY_STATS_PATH:-../datasetA_vid_stats.txt}"
+  split_patterns:
+    train: ["train", "Train", "training"]
+    val: ["val", "valid", "validation"]
+    test: ["test", "Test"]
+  split_assignments:
+    train: ["cam_1", "cam_2", "cam_3", "cam_4", "cam_5", "cam_6", "cam_9", "cam_10", "cam_11", "cam_12", "cam_18", "cam_19", "cam_20"]
+    val: ["cam_7", "cam_16", "cam_17"]
+    test: ["cam_8", "cam_13", "cam_14", "cam_15"]
+  tags: ["normal_traffic"]
+  camera_regex: "cam[_-]?(\\d+)"
+  tags_by_suffix:
+    dawn: dawn_dusk
+    rain: weather_rain
+    snow: weather_snow
+  include_substrings: []
+  exclude_substrings: []
+  expectations:
+    total_videos: 31
+    split_counts:
+      train: 24
+      val: 3
+      test: 4
+    manifest_split_counts:
+      train: 22
+      val: 5
+      test: 4
+    unique_cameras: 20
+    stats_rows: 31

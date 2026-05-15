@@ -1,0 +1,46 @@
+inherits:
+  - configs/base.yaml
+
+experiment:
+  id: S13_severity_r3d_uniform_pod
+  task: severity
+  manifest_paths:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_accident_severity_test.jsonl"
+
+model:
+  family: r3d_baseline
+  encoder_name: r3d_18
+  pretrained: true
+  num_classes: 3
+
+project:
+  output_dir: outputs/runpod_severity_push
+
+runtime:
+  device: cuda
+  num_workers: 8
+  amp: true
+
+data:
+  clip_num_frames: 8
+  clip_stride: 8
+  input_size: 160
+  batch_size: 4
+  train_clip_sampler: uniform
+  eval_clip_sampler: uniform
+
+optimization:
+  optimizer: adamw
+  lr: 0.0003
+  weight_decay: 0.0001
+  epochs: 10
+  scheduler: cosine
+
+training:
+  loss: cross_entropy
+  label_smoothing: 0.0
+
+evaluation:
+  metrics: [accuracy, macro_f1, balanced_accuracy]

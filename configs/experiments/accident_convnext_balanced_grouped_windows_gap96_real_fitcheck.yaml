@@ -1,0 +1,40 @@
+inherits:
+  - configs/experiments/accident_convnext_rtx3080_10gb.yaml
+
+runtime:
+  num_workers: 0
+
+project:
+  output_dir: outputs/fit_checks
+
+data:
+  clip_num_frames: 16
+  clip_stride: 2
+  input_size: 160
+  batch_size: 8
+  train_clip_sampler: uniform
+  eval_clip_sampler: uniform
+  spatial_crop:
+    enabled: true
+    top: 0.35
+    left: 0.10
+    bottom: 1.0
+    right: 0.90
+
+optimization:
+  epochs: 5
+  lr: 0.0002
+  weight_decay: 0.0005
+
+training:
+  label_smoothing: 0.0
+
+reporting:
+  save_best_metric: balanced_accuracy
+
+experiment:
+  id: D02q_accident_convnext_balanced_grouped_windows_gap96_real_fitcheck
+  manifest_paths:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_grouped_windows_gap96/balanced_grouped_windows_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_grouped_windows_gap96/balanced_grouped_windows_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/balanced_grouped_windows_gap96/balanced_grouped_windows_test.jsonl"

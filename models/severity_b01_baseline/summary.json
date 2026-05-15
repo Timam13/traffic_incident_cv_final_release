@@ -1,0 +1,54 @@
+{
+  "name": "severity_b01_baseline",
+  "title": "Severity B01 Baseline",
+  "task": "severity",
+  "role": "historical_baseline",
+  "selection_note": "Historical severity baseline. Included to show the gap between the early ConvNeXt branch and the final S13 line.",
+  "source_run_dir": "outputs/_tmp_b01_localized",
+  "checkpoint_file": "model_last.pt",
+  "training_metrics_path": "metrics.json",
+  "test_metrics_path": null,
+  "training": {
+    "best_epoch": 10,
+    "best_metric": 0.4271444377936188,
+    "best_metric_name": null
+  },
+  "test": {
+    "metrics": {
+      "accuracy": 0.3377777777777778,
+      "macro_f1": 0.2685301867338756,
+      "balanced_accuracy": 0.3377777777777778,
+      "roc_auc_ovr": 0.5198666666666667
+    },
+    "metadata": {
+      "confusion_matrix": [
+        [
+          0,
+          34,
+          41
+        ],
+        [
+          0,
+          32,
+          43
+        ],
+        [
+          0,
+          31,
+          44
+        ]
+      ],
+      "run_dir": "outputs/_tmp_b01_localized",
+      "split": "test",
+      "device": "cuda",
+      "resolved_manifest_path": "outputs/_tmp_b01_localized/resolved_test.jsonl",
+      "record_count": 225,
+      "eval_clip_sampler": "uniform",
+      "labels": [
+        "minor",
+        "moderate",
+        "major"
+      ]
+    }
+  }
+}

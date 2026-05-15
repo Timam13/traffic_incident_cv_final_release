@@ -1,0 +1,32 @@
+sources:
+  dataset_configs:
+    ai_city: configs/datasets/ai_city.yaml
+    balanced_accident: configs/datasets/balanced_accident.yaml
+  manifests:
+    ai_city_all: data/manifests/ai_city_accident_all.jsonl
+    balanced_binary_all: data/manifests/balanced_accident_binary_all.jsonl
+    balanced_severity_all: data/manifests/balanced_accident_severity_all.jsonl
+    accident_binary_all: data/manifests/accident_binary_all.jsonl
+    accident_binary_train: data/manifests/accident_binary_train.jsonl
+    accident_binary_val: data/manifests/accident_binary_val.jsonl
+    accident_binary_test: data/manifests/accident_binary_test.jsonl
+
+report:
+  output_dir: outputs/reports/input_harmonization_20260414
+  sample_frames: true
+
+harmonization:
+  output_video_root: outputs/harmonized_videos
+  output_manifest_root: outputs/harmonized_manifests
+  profile:
+    name: bridge_v1_8fps_160
+    target_fps: 8
+    target_width: 160
+    target_height: 160
+    video_codec: libx264
+    pix_fmt: yuv420p
+    preset: veryfast
+    crf: 28
+    keep_audio: false
+    resize_mode: pad
+    scale_flags: lanczos

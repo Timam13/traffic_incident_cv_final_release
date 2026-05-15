@@ -1,0 +1,23 @@
+{
+  "train": {
+    "manifest_path": "data/manifests/balanced_accident_severity_train.jsonl",
+    "count": 1050,
+    "labels": {
+      "severity:accident": 1050
+    }
+  },
+  "val": {
+    "manifest_path": "data/manifests/balanced_accident_severity_val.jsonl",
+    "count": 225,
+    "labels": {
+      "severity:accident": 225
+    }
+  },
+  "test": {
+    "manifest_path": "data/manifests/balanced_accident_severity_test.jsonl",
+    "count": 225,
+    "labels": {
+      "severity:accident": 225
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "severity",
+  "title": "Severity S13 R3D",
+  "task": "severity",
+  "role": "current_primary",
+  "selection_note": "Current primary severity model. Chosen for the best held-out test quality among the recovered severity runs.",
+  "source_run_dir": "outputs/runpod_severity_push/S13_severity_r3d_uniform_pod",
+  "checkpoint_file": "model_best.pt",
+  "training_metrics_path": "metrics.json",
+  "test_metrics_path": null,
+  "training": {
+    "best_epoch": 10,
+    "best_metric": 0.6181255927559838,
+    "best_metric_name": null
+  },
+  "test": {
+    "metrics": {
+      "accuracy": 0.6444444444444445,
+      "macro_f1": 0.6404825577940215,
+      "balanced_accuracy": 0.6444444444444445,
+      "roc_auc_ovr": 0.8096888888888888
+    },
+    "metadata": {
+      "confusion_matrix": [
+        [
+          45,
+          20,
+          10
+        ],
+        [
+          24,
+          39,
+          12
+        ],
+        [
+          6,
+          8,
+          61
+        ]
+      ],
+      "run_dir": "outputs/runpod_severity_push/S13_severity_r3d_uniform_pod",
+      "split": "test",
+      "device": "cuda",
+      "resolved_manifest_path": "outputs/runpod_severity_push/S13_severity_r3d_uniform_pod/resolved_test.jsonl",
+      "record_count": 225,
+      "eval_clip_sampler": "uniform",
+      "labels": [
+        "minor",
+        "moderate",
+        "major"
+      ]
+    }
+  }
+}

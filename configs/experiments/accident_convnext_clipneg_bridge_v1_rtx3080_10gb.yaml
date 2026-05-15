@@ -1,0 +1,19 @@
+inherits:
+  - configs/experiments/accident_convnext.yaml
+  - configs/presets/rtx3080_10gb_convnext.yaml
+
+experiment:
+  id: A03_accident_convnext_clipneg_bridge_v1_rtx3080_10gb
+  manifest_paths:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_test.jsonl"
+
+data:
+  clip_num_frames: 16
+  clip_stride: 2
+  input_size: 224
+  batch_size: 2
+
+reporting:
+  save_best_metric: balanced_accuracy

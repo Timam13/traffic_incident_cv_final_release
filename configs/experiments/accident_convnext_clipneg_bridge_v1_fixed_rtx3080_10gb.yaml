@@ -1,0 +1,5 @@
+inherits:
+  - configs/experiments/accident_convnext_clipneg_bridge_v1_rtx3080_10gb.yaml
+
+experiment:
+  id: A03r_accident_convnext_clipneg_bridge_v1_fixed_rtx3080_10gb

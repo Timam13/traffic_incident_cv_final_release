@@ -1,0 +1,60 @@
+{
+  "experiment_id": "A03r_accident_convnext_clipneg_bridge_v1_fixed_rtx3080_10gb",
+  "task": "accident",
+  "manifest_paths": {
+    "train": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_train.jsonl",
+    "val": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_val.jsonl",
+    "test": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_test.jsonl"
+  },
+  "model": {
+    "family": "convnext_baseline",
+    "encoder_name": "convnext_tiny",
+    "temporal_pooling": "mean",
+    "pretrained": true,
+    "num_classes": 2
+  },
+  "training": {
+    "loss": "cross_entropy",
+    "label_smoothing": 0.0
+  },
+  "runtime": {
+    "device": "cuda",
+    "num_workers": 2,
+    "amp": true,
+    "log_interval": 20
+  },
+  "data": {
+    "clip_num_frames": 16,
+    "clip_stride": 2,
+    "input_size": 224,
+    "batch_size": 2
+  },
+  "project": {
+    "name": "traffic_incident_cv",
+    "output_dir": "outputs",
+    "seed": 42,
+    "deterministic": true
+  },
+  "evaluation": {
+    "metrics": [
+      "accuracy",
+      "precision",
+      "recall",
+      "f1",
+      "roc_auc",
+      "pr_auc"
+    ]
+  },
+  "optimization": {
+    "optimizer": "adamw",
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "epochs": 12,
+    "scheduler": "cosine"
+  },
+  "reporting": {
+    "save_best_metric": "balanced_accuracy",
+    "save_predictions": true,
+    "save_confusion_matrix": true
+  }
+}

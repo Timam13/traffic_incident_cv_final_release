@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traffic-incident-cv"
+version = "0.1.0"
+description = "Modular computer vision pipeline for road accident detection and severity classification in traffic video streams"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Timur Mamedov" }
+]
+dependencies = [
+  "PyYAML>=6.0",
+  "numpy>=1.24",
+  "scikit-learn>=1.4",
+  "rich>=13.7",
+  "tqdm>=4.66",
+  "legacy-cgi>=2.6"
+]
+
+[project.optional-dependencies]
+train = [
+  "torch>=2.2",
+  "torchvision>=0.17",
+  "opencv-python>=4.9",
+  "ultralytics>=8.3",
+  "matplotlib>=3.8"
+]
+video_fast = [
+  "decord>=0.6"
+]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.5"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

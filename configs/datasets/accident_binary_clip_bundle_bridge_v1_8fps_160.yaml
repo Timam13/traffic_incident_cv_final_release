@@ -1,0 +1,26 @@
+dataset:
+  name: accident_binary_clips_bridge_v1_8fps_160
+  builder: accident_clip_bundle
+  input_manifests:
+    - "outputs/harmonized_manifests/bridge_v1_8fps_160/ai_city_accident_all_bridge_v1_8fps_160.jsonl"
+    - "outputs/harmonized_manifests/bridge_v1_8fps_160/balanced_accident_binary_all_bridge_v1_8fps_160.jsonl"
+  negative_source_manifest: "outputs/harmonized_manifests/bridge_v1_8fps_160/ai_city_accident_all_bridge_v1_8fps_160.jsonl"
+  positive_source_manifest: "outputs/harmonized_manifests/bridge_v1_8fps_160/balanced_accident_binary_all_bridge_v1_8fps_160.jsonl"
+  output_manifest: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_all.jsonl"
+  output_manifests:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_test.jsonl"
+  negative_policy:
+    name: balanced_neg_v1
+    clip_duration_sec: 8.0
+    clip_stride_sec: 4.0
+    target_negative_to_positive_ratio: 1.0
+    negative_tags: ["temporal_clip", "clip_role:no_accident_window"]
+    positive_tags: ["clip_role:accident_clip"]
+  expectations:
+    total_records: 3000
+    split_counts:
+      train: 2100
+      val: 450
+      test: 450

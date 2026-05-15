@@ -1,0 +1,63 @@
+{
+  "metrics": {
+    "epoch": 12.0,
+    "train_loss": 1.2800579979306176e-05,
+    "train_accuracy": 1.0,
+    "train_precision": 1.0,
+    "train_recall": 1.0,
+    "train_f1": 1.0,
+    "train_balanced_accuracy": 1.0,
+    "train_roc_auc": 1.0,
+    "train_pr_auc": 1.0,
+    "val_loss": 1.249388112756941,
+    "val_accuracy": 0.8977777777777778,
+    "val_precision": 0.8327137546468402,
+    "val_recall": 0.9955555555555555,
+    "val_f1": 0.9068825910931174,
+    "val_balanced_accuracy": 0.8977777777777778,
+    "val_roc_auc": 0.8962469135802469,
+    "val_pr_auc": 0.8307669556244169
+  },
+  "per_class": {},
+  "metadata": {
+    "best_metric": 0.8977777777777778,
+    "best_epoch": 4,
+    "history_length": 12,
+    "manifest_summary": {
+      "train": {
+        "manifest_path": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_train.jsonl",
+        "count": 2100,
+        "labels": {
+          "accident:no_accident": 1050,
+          "accident:accident": 1050
+        }
+      },
+      "val": {
+        "manifest_path": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_val.jsonl",
+        "count": 450,
+        "labels": {
+          "accident:no_accident": 225,
+          "accident:accident": 225
+        }
+      },
+      "test": {
+        "manifest_path": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_test.jsonl",
+        "count": 450,
+        "labels": {
+          "accident:no_accident": 225,
+          "accident:accident": 225
+        }
+      }
+    },
+    "training_mode": "torch",
+    "reweighting": {
+      "sampler_mode": "shuffle",
+      "class_weighting": "none",
+      "train_target_histogram": {
+        "0": 1050,
+        "1": 1050
+      },
+      "class_weights": []
+    }
+  }
+}

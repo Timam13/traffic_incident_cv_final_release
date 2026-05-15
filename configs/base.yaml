@@ -1,0 +1,31 @@
+project:
+  name: traffic_incident_cv
+  output_dir: "${TRAFFIC_INCIDENT_OUTPUT_DIR:-outputs}"
+  seed: 42
+  deterministic: true
+
+runtime:
+  device: cuda
+  num_workers: 4
+  amp: true
+  log_interval: 20
+
+data:
+  clip_num_frames: 16
+  clip_stride: 2
+  input_size: 224
+  batch_size: 8
+  train_clip_sampler: random
+  eval_clip_sampler: uniform
+
+optimization:
+  optimizer: adamw
+  lr: 0.0003
+  weight_decay: 0.0001
+  epochs: 15
+  scheduler: cosine
+
+reporting:
+  save_best_metric: macro_f1
+  save_predictions: true
+  save_confusion_matrix: true

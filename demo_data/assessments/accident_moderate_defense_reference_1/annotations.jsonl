@@ -1,0 +1,1 @@
+{"segment_id": "segment_0001", "start_sec": 8.0, "end_sec": 13.25, "start_frame": 64, "end_frame": 105, "window_count": 2, "max_accident_score": 1.0, "severity_label": "moderate", "severity_vote_counts": {"moderate": 2}}

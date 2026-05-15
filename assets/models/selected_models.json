@@ -1,0 +1,63 @@
+{
+  "ui_entry_point": "scripts/manage.py ui",
+  "models": {
+    "accident": {
+      "path": "models/hybrid",
+      "required_files": [
+        "config.json",
+        "model_best.pt"
+      ],
+      "description": "Primary accident detector for the demo release."
+    },
+    "severity": {
+      "path": "models/severity",
+      "required_files": [
+        "config.json",
+        "model_best.pt"
+      ],
+      "description": "Primary severity classifier for the demo release."
+    }
+  },
+  "catalog": [
+    {
+      "release_name": "hybrid",
+      "title": "Accident Hybrid H01",
+      "task": "accident",
+      "role": "current_primary",
+      "path": "models/hybrid",
+      "checkpoint_file": "model_best.pt"
+    },
+    {
+      "release_name": "accident_convnext_d02",
+      "title": "Accident ConvNeXt D02",
+      "task": "accident",
+      "role": "best_single_branch",
+      "path": "models/accident_convnext_d02",
+      "checkpoint_file": "model_best.pt"
+    },
+    {
+      "release_name": "accident_a03r_no_harmonization",
+      "title": "Accident A03r Without Harmonization",
+      "task": "accident",
+      "role": "best_pre_harmonization",
+      "path": "models/accident_a03r_no_harmonization",
+      "checkpoint_file": "model_last.pt"
+    },
+    {
+      "release_name": "severity",
+      "title": "Severity S13 R3D",
+      "task": "severity",
+      "role": "current_primary",
+      "path": "models/severity",
+      "checkpoint_file": "model_best.pt"
+    },
+    {
+      "release_name": "severity_b01_baseline",
+      "title": "Severity B01 Baseline",
+      "task": "severity",
+      "role": "historical_baseline",
+      "path": "models/severity_b01_baseline",
+      "checkpoint_file": "model_last.pt"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "dataset_id": "ui_test_dataset_bridge_v1_8fps_160",
+  "prepared_scheme": "bridge_v1_8fps_160",
+  "accident_run_dir": "models/hybrid",
+  "severity_run_dir": "models/severity",
+  "examples": [
+    {
+      "case_id": "accident_major_defense_reference",
+      "title": "Accident: major severity (defense reference)",
+      "kind": "positive",
+      "video_path": "demo_data/videos/positive/accident_major_defense_reference.mp4",
+      "expected_accident_label": "accident",
+      "expected_severity_label": "major",
+      "notes": "Curated major-severity clip with stable accident detection and dominant major votes in the current H01 + S13 cascade.",
+      "assessment_dir": "demo_data/assessments/accident_major_defense_reference",
+      "assessment_json": "demo_data/assessments/accident_major_defense_reference/assessment.json",
+      "report_html": "demo_data/assessments/accident_major_defense_reference/report.html"
+    },
+    {
+      "case_id": "accident_moderate_defense_reference_1",
+      "title": "Accident: moderate severity (reference 1)",
+      "kind": "positive",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_1.mp4",
+      "expected_accident_label": "accident",
+      "expected_severity_label": "moderate",
+      "notes": "Strong moderate case with confident accident detection and repeated moderate votes.",
+      "assessment_dir": "demo_data/assessments/accident_moderate_defense_reference_1",
+      "assessment_json": "demo_data/assessments/accident_moderate_defense_reference_1/assessment.json",
+      "report_html": "demo_data/assessments/accident_moderate_defense_reference_1/report.html"
+    },
+    {
+      "case_id": "accident_moderate_defense_reference_2",
+      "title": "Accident: moderate severity (reference 2)",
+      "kind": "positive",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_2.mp4",
+      "expected_accident_label": "accident",
+      "expected_severity_label": "moderate",
+      "notes": "Compact moderate example that keeps the UI timeline short while preserving the expected severity label.",
+      "assessment_dir": "demo_data/assessments/accident_moderate_defense_reference_2",
+      "assessment_json": "demo_data/assessments/accident_moderate_defense_reference_2/assessment.json",
+      "report_html": "demo_data/assessments/accident_moderate_defense_reference_2/report.html"
+    },
+    {
+      "case_id": "accident_moderate_defense_reference_3",
+      "title": "Accident: moderate severity (reference 3)",
+      "kind": "positive",
+      "video_path": "demo_data/videos/positive/accident_moderate_defense_reference_3.mp4",
+      "expected_accident_label": "accident",
+      "expected_severity_label": "moderate",
+      "notes": "Short moderate clip selected specifically because the current cascade keeps both accident and severity predictions stable.",
+      "assessment_dir": "demo_data/assessments/accident_moderate_defense_reference_3",
+      "assessment_json": "demo_data/assessments/accident_moderate_defense_reference_3/assessment.json",
+      "report_html": "demo_data/assessments/accident_moderate_defense_reference_3/report.html"
+    },
+    {
+      "case_id": "accident_minor_defense_reference_1",
+      "title": "Accident: minor severity (reference 1)",
+      "kind": "positive",
+      "video_path": "demo_data/videos/positive/accident_minor_defense_reference_1.mp4",
+      "expected_accident_label": "accident",
+      "expected_severity_label": "minor",
+      "notes": "Minor-severity clip with several positive windows, useful for showing the score timeline and consistent minor votes.",
+      "assessment_dir": "demo_data/assessments/accident_minor_defense_reference_1",
+      "assessment_json": "demo_data/assessments/accident_minor_defense_reference_1/assessment.json",
+      "report_html": "demo_data/assessments/accident_minor_defense_reference_1/report.html"
+    },
+    {
+      "case_id": "accident_minor_defense_reference_2",
+      "title": "Accident: minor severity (reference 2)",
+      "kind": "positive",
+      "video_path": "demo_data/videos/positive/accident_minor_defense_reference_2.mp4",
+      "expected_accident_label": "accident",
+      "expected_severity_label": "minor",
+      "notes": "Second minor case with a longer context span and multiple minor votes for the severity branch.",
+      "assessment_dir": "demo_data/assessments/accident_minor_defense_reference_2",
+      "assessment_json": "demo_data/assessments/accident_minor_defense_reference_2/assessment.json",
+      "report_html": "demo_data/assessments/accident_minor_defense_reference_2/report.html"
+    },
+    {
+      "case_id": "no_accident_reference_cam14",
+      "title": "No accident: AI City cam_14",
+      "kind": "negative",
+      "video_path": "demo_data/videos/negative/no_accident_reference_cam14.mp4",
+      "expected_accident_label": "no_accident",
+      "expected_severity_label": null,
+      "notes": "Regular negative example after harmonization, trimmed for a quick UI run.",
+      "assessment_dir": "demo_data/assessments/no_accident_reference_cam14",
+      "assessment_json": "demo_data/assessments/no_accident_reference_cam14/assessment.json",
+      "report_html": "demo_data/assessments/no_accident_reference_cam14/report.html"
+    },
+    {
+      "case_id": "no_accident_hard_cam15",
+      "title": "Hard negative: AI City cam_15",
+      "kind": "hard_negative",
+      "video_path": "demo_data/videos/negative/no_accident_hard_cam15.mp4",
+      "expected_accident_label": "no_accident",
+      "expected_severity_label": null,
+      "notes": "Historically difficult negative camera. Included to show that the current demo configuration avoids false alarms here.",
+      "assessment_dir": "demo_data/assessments/no_accident_hard_cam15",
+      "assessment_json": "demo_data/assessments/no_accident_hard_cam15/assessment.json",
+      "report_html": "demo_data/assessments/no_accident_hard_cam15/report.html"
+    },
+    {
+      "case_id": "no_accident_hard_cam8",
+      "title": "Hard negative: AI City cam_8",
+      "kind": "hard_negative",
+      "video_path": "demo_data/videos/negative/no_accident_hard_cam8.mp4",
+      "expected_accident_label": "no_accident",
+      "expected_severity_label": null,
+      "notes": "Historically difficult negative camera. Selected because H01 stays below threshold on the trimmed defense clip.",
+      "assessment_dir": "demo_data/assessments/no_accident_hard_cam8",
+      "assessment_json": "demo_data/assessments/no_accident_hard_cam8/assessment.json",
+      "report_html": "demo_data/assessments/no_accident_hard_cam8/report.html"
+    },
+    {
+      "case_id": "no_accident_hard_cam13",
+      "title": "Hard negative: AI City cam_13",
+      "kind": "hard_negative",
+      "video_path": "demo_data/videos/negative/no_accident_hard_cam13.mp4",
+      "expected_accident_label": "no_accident",
+      "expected_severity_label": null,
+      "notes": "Another hard negative used to demonstrate low accident scores and the absence of severity output.",
+      "assessment_dir": "demo_data/assessments/no_accident_hard_cam13",
+      "assessment_json": "demo_data/assessments/no_accident_hard_cam13/assessment.json",
+      "report_html": "demo_data/assessments/no_accident_hard_cam13/report.html"
+    }
+  ]
+}

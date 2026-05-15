@@ -1,0 +1,28 @@
+inherits:
+  - configs/base.yaml
+  - configs/presets/rtx3080_10gb_convnext.yaml
+
+experiment:
+  id: A01b_accident_convnext_balanced_baseline
+  task: accident
+  manifest_paths:
+    train: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_train.jsonl"
+    val: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_val.jsonl"
+    test: "${TRAFFIC_INCIDENT_MANIFEST_DIR:-data/manifests}/accident_binary_clips_bridge_v1_8fps_160_test.jsonl"
+
+model:
+  family: convnext_baseline
+  encoder_name: convnext_tiny
+  temporal_pooling: mean
+  pretrained: true
+  num_classes: 2
+
+training:
+  loss: cross_entropy
+  label_smoothing: 0.0
+
+reporting:
+  save_best_metric: balanced_accuracy
+
+evaluation:
+  metrics: [accuracy, balanced_accuracy, precision, recall, f1, roc_auc, pr_auc]

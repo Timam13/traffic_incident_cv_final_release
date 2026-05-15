@@ -1,0 +1,26 @@
+{
+  "train": {
+    "manifest_path": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_train.jsonl",
+    "count": 2100,
+    "labels": {
+      "accident:no_accident": 1050,
+      "accident:accident": 1050
+    }
+  },
+  "val": {
+    "manifest_path": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_val.jsonl",
+    "count": 450,
+    "labels": {
+      "accident:no_accident": 225,
+      "accident:accident": 225
+    }
+  },
+  "test": {
+    "manifest_path": "data/manifests/accident_binary_clips_bridge_v1_8fps_160_test.jsonl",
+    "count": 450,
+    "labels": {
+      "accident:no_accident": 225,
+      "accident:accident": 225
+    }
+  }
+}

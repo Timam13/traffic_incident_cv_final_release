@@ -1,0 +1,48 @@
+{
+  "name": "accident_a03r_no_harmonization",
+  "title": "Accident A03r Without Harmonization",
+  "task": "accident",
+  "role": "best_pre_harmonization",
+  "selection_note": "Best accident line from the non-harmonized branch. Preserved as a reference point for methodology comparison.",
+  "source_run_dir": "outputs/A03r_accident_convnext_clipneg_bridge_v1_fixed_rtx3080_10gb",
+  "checkpoint_file": "model_last.pt",
+  "training_metrics_path": "metrics.json",
+  "test_metrics_path": null,
+  "training": {
+    "best_epoch": 4,
+    "best_metric": 0.8977777777777778,
+    "best_metric_name": null
+  },
+  "test": {
+    "metrics": {
+      "accuracy": 0.6711111111111111,
+      "precision": 0.6037735849056604,
+      "recall": 0.9955555555555555,
+      "f1": 0.7516778523489933,
+      "balanced_accuracy": 0.6711111111111111,
+      "roc_auc": 0.9419259259259259,
+      "pr_auc": 0.9552274260509066
+    },
+    "metadata": {
+      "confusion_matrix": [
+        [
+          78,
+          147
+        ],
+        [
+          1,
+          224
+        ]
+      ],
+      "run_dir": "outputs/A03r_accident_convnext_clipneg_bridge_v1_fixed_rtx3080_10gb",
+      "split": "test",
+      "threshold": 0.5,
+      "device": "cuda",
+      "resolved_manifest_path": "outputs/A03r_accident_convnext_clipneg_bridge_v1_fixed_rtx3080_10gb/resolved_test.jsonl",
+      "record_count": 450,
+      "positive_count": 225,
+      "negative_count": 225,
+      "best_threshold_from_sweep": 0.95
+    }
+  }
+}

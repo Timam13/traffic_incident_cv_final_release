@@ -1,0 +1,26 @@
+{
+  "train": {
+    "manifest_path": "data/manifests/balanced_grouped_windows_gap96/balanced_grouped_windows_train.jsonl",
+    "count": 350,
+    "labels": {
+      "accident:no_accident": 175,
+      "accident:accident": 175
+    }
+  },
+  "val": {
+    "manifest_path": "data/manifests/balanced_grouped_windows_gap96/balanced_grouped_windows_val.jsonl",
+    "count": 84,
+    "labels": {
+      "accident:no_accident": 42,
+      "accident:accident": 42
+    }
+  },
+  "test": {
+    "manifest_path": "data/manifests/balanced_grouped_windows_gap96/balanced_grouped_windows_test.jsonl",
+    "count": 82,
+    "labels": {
+      "accident:no_accident": 41,
+      "accident:accident": 41
+    }
+  }
+}
