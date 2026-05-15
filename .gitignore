@@ -38,3 +38,6 @@ __MACOSX/
 *.log
 
 .ipynb_checkpoints/
+
+outputs/
+!outputs/.gitkeep
