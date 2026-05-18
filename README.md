@@ -79,7 +79,7 @@ Large PyTorch checkpoint files may be omitted from GitHub because of file-size l
 | A03r reference model        | `models/accident_a03r_no_harmonization/model_last.pt` |
 | B01 baseline model          | `models/severity_b01_baseline/model_last.pt`          |
 
-Link for weighted model:
+Link for weighted model: [https://disk.360.yandex.ru/d/oUwCJtSdcKwZHg](https://disk.360.yandex.ru/d/oUwCJtSdcKwZHg)
 
 ---
 
